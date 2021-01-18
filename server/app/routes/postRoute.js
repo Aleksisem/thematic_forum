@@ -10,6 +10,6 @@ router.get('/posts/:id', PostController.getPost)
 router.get('/posts/:id/comments', PostController.getComments)
 router.post('/posts/:id', PostController.addComment)
 router.delete('/posts/:id', PostController.deletePost)
-router.delete('/comments/:id', PostController.deleteComment)
+router.delete('comments/:commentId', PostController.deleteComment)
 
 export default router

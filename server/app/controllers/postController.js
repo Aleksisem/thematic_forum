@@ -14,6 +14,9 @@ const getAllSections = (req, res) => {
   dbQuery.query(query, values)
   .then((response) => {
     successMessage.data = response.rows
+    if (successMessage.data.length == 0) {
+      return res.status(status.notfound).send(successMessage.data)
+    }
     return res.status(status.success).send(successMessage.data)
   })
   .catch((err) => {
@@ -42,6 +45,9 @@ const getAllPostsFromSection = (req, res) => {
           minute: 'numeric'
         })
       })
+      if (successMessage.data.length == 0) {
+        return res.status(status.notfound).send(successMessage.data)
+      }
       return res.status(status.success).send(successMessage.data)
     })
     .catch(err => {
@@ -162,6 +168,9 @@ const getComments = (req, res) => {
           minute: 'numeric'
         })
       })
+      if (successMessage.data.length == 0) {
+        return res.status(status.notfound).send(successMessage.data)
+      }
       return res.status(status.success).send(successMessage.data)
     })
 }
@@ -208,7 +217,7 @@ const addComment = (req, res) => {
 }
 
 const deleteComment = (req, res) => {
-  const query = `DELETE FROM comment WHERE id = ${req.params.id}`
+  const query = `DELETE FROM comments WHERE id = ${req.params.commentId}`
   dbQuery.query(query)
     .then((response) => {
       return res.status(status.success).send(successMessage)

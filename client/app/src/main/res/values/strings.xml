@@ -11,7 +11,7 @@
   <string name="title_sections">Форум | Разделы</string>
   <string name="title_posts_list">Раздел</string>
   <string name="title_post_create">Создать пост</string>
-  <string name="about_text">Цель форума - обмен информацией между пользователями.</string>
+  <string name="about_text">Цель форума - обмен информацией между пользователями.\n\nПользователи могут публиковать свои посты в разделах, зайдя в раздел и нажав на значок + на панели. Для комментирования постов нажмите на иконку справа от количества комментариев в форме поста.\n\nМодераторы обладают возможностью удалять посты и комментарии. Для вызова контекстного меню необходимо удерживать пост или комментарий в списке.</string>
   <string name="content_text_example">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non justo eu magna pretium mattis. Nunc iaculis hendrerit velit ultrices sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec quis mauris quis urna aliquam sodales. Phasellus efficitur quam quis risus tincidunt pulvinar. Vivamus ac mollis est, in fringilla lorem. Maecenas ligula augue, lobortis nec ex a, ultrices finibus est. Vivamus in magna vitae dui finibus malesuada. </string>
   <string name="post_title_hint">Заголовок поста</string>
   <string name="post_content_hint">Содержание</string>
