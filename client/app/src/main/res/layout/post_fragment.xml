@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+  <data>
+    <variable
+        name="viewModel"
+        type="com.example.forum.post.PostViewModel" />
+  </data>
+
+  <androidx.core.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:fillViewport="true"
+      tools:context=".post.PostFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+      <RelativeLayout
+          android:id="@+id/post_info_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="@dimen/padding_small"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/post_author_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.post.authorLogin}"
+            android:textSize="@dimen/textSize"
+            tools:text="Lex" />
+
+        <TextView
+            android:id="@+id/post_date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_toEndOf="@id/post_author_text"
+            android:text="@{viewModel.post.publishedDate}"
+            android:textSize="@dimen/textSize"
+            tools:text="01.01.2021 00:00" />
+      </RelativeLayout>
+
+      <TextView
+          android:id="@+id/post_title_text"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:paddingHorizontal="@dimen/padding_small"
+          android:text="@{viewModel.post.title}"
+          android:textSize="@dimen/textTitle"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/post_info_layout"
+          tools:text="@string/post_title_hint" />
+
+      <TextView
+          android:id="@+id/post_content_text"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:paddingHorizontal="@dimen/padding_small"
+          android:text="@{viewModel.post.content}"
+          android:textSize="@dimen/textSize"
+          app:layout_constraintTop_toBottomOf="@+id/post_title_text"
+          tools:layout_editor_absoluteX="8dp"
+          tools:text="@string/content_text_example" />
+
+      <TextView
+          android:id="@+id/comments_count_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/margin"
+          android:paddingHorizontal="@dimen/padding_small"
+          android:text="@{`Комментарии ` + String.valueOf(viewModel.comments.size())}"
+          android:textSize="@dimen/textSize"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/post_content_text"
+          tools:text="Комментарии 5" />
+
+      <ImageButton
+          android:id="@+id/imageButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/margin"
+          android:src="@drawable/ic_baseline_chat_24"
+          android:background="@android:color/transparent"
+          android:onClick="@{ () -> viewModel.displayCommentEditor() }"
+          android:clickable="@{!viewModel.isUserAGuest}"
+          app:layout_constraintBottom_toBottomOf="@+id/view"
+          app:layout_constraintStart_toEndOf="@+id/comments_count_text"
+          app:layout_constraintTop_toBottomOf="@+id/post_content_text"/>
+
+      <View
+          android:id="@+id/view"
+          android:layout_width="match_parent"
+          android:layout_height="2dp"
+          android:layout_marginTop="@dimen/margin"
+          android:layout_marginBottom="@dimen/margin"
+          android:background="#c0c0c0"
+          app:layout_constraintTop_toBottomOf="@+id/comments_count_text" />
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/comments_list_view"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:layout_marginTop="@dimen/margin"
+          android:clipToPadding="false"
+          android:paddingHorizontal="@dimen/padding_small"
+          app:commentsListData="@{viewModel.comments}"
+          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/view"
+          tools:itemCount="5"
+          tools:listitem="@layout/comment_item">
+
+      </androidx.recyclerview.widget.RecyclerView>
+
+      <LinearLayout
+          android:id="@+id/comment_input_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="#E6E6E6"
+          android:orientation="horizontal"
+          android:visibility="gone"
+          app:layout_constraintBottom_toBottomOf="parent"
+          tools:layout_editor_absoluteX="8dp"
+          tools:visibility="visible">
+
+        <EditText
+            android:id="@+id/user_comment_edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/comment_text"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:text="@={viewModel.userComment}" />
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:onClick="@{() -> viewModel.sendComment() }"
+            android:src="@drawable/ic_baseline_send_24"
+            android:tint="@color/colorPrimary"
+            android:contentDescription="Отправить" />
+      </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
+</layout>

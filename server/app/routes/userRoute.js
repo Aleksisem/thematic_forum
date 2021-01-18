@@ -1,12 +1,12 @@
 import express from 'express'
 
-import { addUser, getUser, updateUser, deleteUser } from '../controllers/userController'
+import * as UserController from '../controllers/userController'
 
 const router = express.Router()
 
-router.post('/auth/join', addUser)
-router.post('/auth/login', getUser)
-router.get('/auth/exit', updateUser)
-router.post('/users/delete', deleteUser)
+router.post('/auth/join', UserController.addUser)
+router.post('/auth/login', UserController.getUser)
+router.post('/auth/exit', UserController.updateUser)
+// router.post('/auth/delete', UserController.deleteUser)
 
 export default router

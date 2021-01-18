@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">Forum</string>
+  <string name="app_name">Форум</string>
+  <string name="login">Логин</string>
+  <string name="password">Пароль</string>
+  <string name="password_again">Подтвердите пароль</string>
+  <string name="activity_login_button">Войти</string>
+  <string name="title_login">Вход</string>
+  <string name="title_registration">Регистрация</string>
+  <string name="incorrect_user">Неверный логин/пароль!</string>
+  <string name="title_about_fragment">О программе</string>
+  <string name="title_sections">Форум | Разделы</string>
+  <string name="title_posts_list">Раздел</string>
+  <string name="title_post_create">Создать пост</string>
+  <string name="about_text">Цель форума - обмен информацией между пользователями.</string>
+  <string name="content_text_example">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non justo eu magna pretium mattis. Nunc iaculis hendrerit velit ultrices sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec quis mauris quis urna aliquam sodales. Phasellus efficitur quam quis risus tincidunt pulvinar. Vivamus ac mollis est, in fringilla lorem. Maecenas ligula augue, lobortis nec ex a, ultrices finibus est. Vivamus in magna vitae dui finibus malesuada. </string>
+  <string name="post_title_hint">Заголовок поста</string>
+  <string name="post_content_hint">Содержание</string>
+  <string name="create_post">Создать пост</string>
+  <string name="save_button">Сохранить</string>
+  <string name="comment_text">Тут должен быть комментарий</string>
+  <string name="exit_menu_item">Выйти</string>
+
 </resources>

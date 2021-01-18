@@ -1,10 +1,15 @@
 import express from 'express'
-import { getAllPosts, addPost } from '../controllers/postController'
+import * as PostController from '../controllers/postController'
 
 const router = express.Router()
 
-router.get('/posts', getAllPosts)
-// router.get('/post/:id', getPost)
-router.post('/posts', addPost)
+router.get('/sections', PostController.getAllSections)
+router.get('/sections/:sectionId/posts', PostController.getAllPostsFromSection)
+router.post('/sections/:sectionId/posts', PostController.addPost)
+router.get('/posts/:id', PostController.getPost)
+router.get('/posts/:id/comments', PostController.getComments)
+router.post('/posts/:id', PostController.addComment)
+router.delete('/posts/:id', PostController.deletePost)
+router.delete('/comments/:id', PostController.deleteComment)
 
 export default router

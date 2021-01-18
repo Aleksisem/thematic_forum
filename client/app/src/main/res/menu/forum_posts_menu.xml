@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+      android:id="@+id/create_post"
+      android:title="@string/create_post"
+      android:icon="@drawable/ic_baseline_add_24"
+      app:showAsAction="ifRoom" />
+  <item
+      android:id="@+id/aboutFragment"
+      android:title="@string/title_about_fragment" />
+  <item
+      android:id="@+id/loginFragment"
+      android:title="@string/exit_menu_item" />
+</menu>

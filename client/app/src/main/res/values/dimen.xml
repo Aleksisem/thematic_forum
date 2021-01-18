@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="activity_horizontal_margin">16dp</dimen>
+  <dimen name="activity_vertical_margin">16dp</dimen>
+  <dimen name="margin_small">8dp</dimen>
+  <dimen name="padding_small">8dp</dimen>
+  <dimen name="margin">16dp</dimen>
+  <dimen name="padding">16dp</dimen>
+  <dimen name="padding_layout">25dp</dimen>
+  <dimen name="cell_text_size">20sp</dimen>
+  <dimen name="textSizeBig">20sp</dimen>
+  <dimen name="textTitle">24sp</dimen>
+  <dimen name="textSize">16sp</dimen>
+  <dimen name="textSizeSmall">12sp</dimen>
+  <dimen name="logoTextSize">50sp</dimen>
+</resources>

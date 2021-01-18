@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+  <data>
+    <variable
+        name="comment"
+        type="com.example.forum.network.Comment" />
+  </data>
+  <RelativeLayout
+      android:id="@+id/post_info_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingVertical="@dimen/padding_small"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/post_author_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textSizeSmall"
+        android:text="@{comment.authorName}"
+        tools:text="Lex" />
+
+    <TextView
+        android:id="@+id/post_date_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_toEndOf="@id/post_author_text"
+        android:textSize="@dimen/textSizeSmall"
+        android:text="@{comment.publishedDate}"
+        tools:text="01.01.2021 00:00" />
+    <TextView
+        android:id="@+id/post_title_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textSize"
+        android:layout_below="@id/post_author_text"
+        android:text="@{comment.content}"
+        tools:text="@string/comment_text" />
+  </RelativeLayout>
+</layout>

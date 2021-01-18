@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+  <data>
+    <variable
+        name="post"
+        type="com.example.forum.network.PostInfo" />
+  </data>
+  <androidx.cardview.widget.CardView
+      android:id="@+id/post_card"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:cardCornerRadius="2dp"
+      app:cardUseCompatPadding="true"
+      app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding">
+
+      <TextView
+          android:id="@+id/post_title"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="@dimen/textSize"
+          android:text="@{post.title}"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:text="Объявление" />
+
+      <TextView
+          android:id="@+id/post_date"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="@dimen/margin_small"
+          android:text="@{String.valueOf(post.publishedDate)}"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toStartOf="@+id/comments_count"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:text="01.01.2021" />
+
+      <TextView
+          android:id="@+id/comments_count"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:drawablePadding="@dimen/padding_small"
+          android:text="@{String.valueOf(post.comments)}"
+          app:drawableRightCompat="@drawable/ic_baseline_chat_24"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:text="5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.cardview.widget.CardView>
+</layout>
